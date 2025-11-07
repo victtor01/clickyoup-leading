@@ -1,11 +1,589 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// src/pages/index.astro
+// Este é o conteúdo principal da sua landing page.
+// Ele substitui o antigo 'Welcome.astro'.
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import imgDashboard from "../assets/dashboard.png";
+import imgCliente from "../assets/client.png";
+import imgGestao from "../assets/gestion.png";
+import Image from "astro/components/Image.astro";
 ---
-
 <Layout>
-	<Welcome />
+  <Fragment slot="head">
+    <style>
+      /* Animações dos blobs (movidas para cá para melhor organização) */
+      @keyframes blobFloatA {
+        0% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translateY(-30px) rotate(12deg) scale(0.99);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+      }
+      @keyframes blobFloatB {
+        0% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translateY(-18px) rotate(-8deg) scale(0.98);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+      }
+      @keyframes blobFloatC {
+        0% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translateY(-45px) rotate(18deg) scale(0.9);
+        }
+        100% {
+          transform: translateY(0px) rotate(0deg) scale(1);
+        }
+      }
+      /* Novos Blobs para as Imagens */
+      @keyframes blobFloatD {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        50% { transform: translate(20px, -15px) rotate(5deg) scale(0.96); }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+      }
+      @keyframes blobFloatE {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        50% { transform: translate(-25px, 10px) rotate(-7deg) scale(0.99); }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+      }
+      @keyframes blobFloatF {
+        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        50% { transform: translate(15px, 20px) rotate(10deg) scale(0.98); }
+        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+      }
+
+
+      .animate-blob-a {
+        animation: blobFloatA 10s ease-in-out infinite;
+      }
+      .animate-blob-b {
+        animation: blobFloatB 12s ease-in-out infinite;
+      }
+      .animate-blob-c {
+        animation: blobFloatC 14s ease-in-out infinite;
+      }
+      /* Animações dos Novos Blobs */
+      .animate-blob-d { animation: blobFloatD 9s ease-in-out infinite; }
+      .animate-blob-e { animation: blobFloatE 11s ease-in-out infinite; }
+      .animate-blob-f { animation: blobFloatF 13s ease-in-out infinite; }
+    </style>
+  </Fragment>
+
+  <main class="relative isolate overflow-hidden">
+    <div
+      class="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-violet-600 to-indigo-600 opacity-30 dark:opacity-20"
+        style="clip-path: ellipse(75% 60% at 50% 40%)"
+      >
+      </div>
+    </div>
+
+    <div
+      class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 lg:py-40 text-center"
+    >
+      <h1
+        class="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl lg:text-6xl"
+      >
+        Sua agenda. Seu negócio. <br />
+        <span class="text-violet-600 dark:text-violet-400"
+          >Tudo em um só lugar.</span
+        >
+      </h1>
+      <p
+        class="mt-6 text-lg max-w-2xl mx-auto text-zinc-600 dark:text-zinc-300"
+      >
+        A plataforma completa para agendamentos, gestão de equipe e controle
+        financeiro. Foque no seu talento, nós cuidamos do resto.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <a
+          href="/register"
+          class="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg
+                 hover:from-violet-700 hover:to-indigo-700
+                 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+        >
+          Comece Agora (É Grátis)
+        </a>
+        <a
+          href="#features"
+          class="text-sm font-semibold text-zinc-700 dark:text-zinc-200 hover:text-zinc-900"
+        >
+          Saber Mais <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <section
+    id="features"
+    class="relative isolate py-20 overflow-x-hidden *:overflow-x-hidden sm:py-32 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-lg"
+  >
+    <div
+      class="absolute inset-x-0 bottom-0 -z-10 transform-gpu overflow-hidden blur-3xl"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-[calc(50%+11rem)] aspect-[1155/678] w-[36.125rem] translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-violet-600 to-indigo-600 opacity-20 dark:opacity-10"
+        style="clip-path: ellipse(75% 60% at 50% 60%)"
+      >
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <h2
+          class="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white"
+        >
+          A plataforma completa.
+        </h2>
+        <p class="mt-4 text-lg text-zinc-600 dark:text-zinc-400">
+          Do agendamento online ao pagamento da comissão.
+        </p>
+      </div>
+
+      <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Card 1 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl">calendar_month</i>
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Agenda e Equipe Unificados
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Gestão completa de agendamentos, horários da loja e horários
+            individuais para cada membro.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl"
+              >admin_panel_settings</i
+            >
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Cargos e Permissões
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Crie cargos customizados (ex: 'Gerente') e defina permissões
+            granulares para cada ação no sistema.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl">payments</i>
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Financeiro Completo
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Integração com pagamentos, controle de "fiado" e geração de folha de
+            pagamento com comissão automática.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl">show_chart</i>
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Dashboard em Tempo Real
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Acompanhe sua receita, metas, serviços populares e visão geral de
+            agendamentos em um painel moderno.
+          </p>
+        </div>
+
+        <!-- Card 5 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl">store</i>
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Sua Vitrine (Plano Pro)
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Atraia clientes com uma página pública (logo, banner, reviews) e
+            apareça na vitrine "Explorar".
+          </p>
+        </div>
+
+        <!-- Card 6 -->
+        <div
+          class="p-6 bg-white/80 dark:bg-zinc-800/80 backdrop-blur-md rounded-2xl shadow-lg border border-zinc-200/50 dark:border-zinc-700/50 flex flex-col items-start gap-4"
+        >
+          <div
+            class="inline-flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400"
+          >
+            <i class="material-symbols-outlined text-2xl">lock</i>
+          </div>
+          <h3 class="text-xl font-semibold text-zinc-900 dark:text-white">
+            Segurança de Nível Empresarial
+          </h3>
+          <p class="text-zinc-600 dark:text-zinc-400">
+            Proteja seu negócio com senhas de acesso (PIN) e tenha a
+            tranquilidade de um sistema 100% multi-tenant.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    Seção de Imagens (Dashboard, Cliente, Gestão)
+    REFATORADA com as 3 novas imagens, textos, bordas de vidro e alinhamento no topo.
+  -->
+  <section
+    class="relative isolate py-20 sm:py-32 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg"
+  >
+    <!-- Container dos Blobs Animados (Fundo) -->
+    <div
+      class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80 pointer-events-none"
+      aria-hidden="true"
+    >
+      <!-- blob 1 -->
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-violet-600 to-indigo-600 opacity-20 dark:opacity-10 rounded-[2rem] animate-blob-a"
+        style="clip-path: ellipse(60% 45% at 50% 50%)"
+      >
+      </div>
+      <!-- blob 2 -->
+      <div
+        class="relative left-[calc(50%+15rem)] -top-80 aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[15deg] bg-gradient-to-tr from-indigo-700 to-violet-500 opacity-20 dark:opacity-10 rounded-[2rem] animate-blob-b"
+        style="clip-path: ellipse(50% 40% at 20% 30%)"
+      >
+      </div>
+      <!-- blob 3 -->
+      <div
+        class="relative left-[calc(50%-4rem)] top-[-18rem] aspect-[1155/678] w-[28rem] -translate-x-1/2 rotate-[-10deg] bg-gradient-to-tr from-pink-500 to-violet-500 opacity-12 dark:opacity-6 rounded-[2rem] animate-blob-c"
+        style="clip-path: ellipse(70% 55% at 80% 70%)"
+      >
+      </div>
+    </div>
+
+    <!-- NOVOS BLOBS (atrás das imagens de vidro) -->
+    <div class="absolute inset-0 -z-10 pointer-events-none opacity-50 dark:opacity-30">
+        <!-- Blob perto da primeira imagem -->
+        <div class="absolute top-[10%] left-[5%] aspect-square w-64 bg-gradient-to-br from-indigo-400 to-purple-500 opacity-40 rounded-full blur-3xl animate-blob-d"></div>
+        <!-- Blob perto da segunda imagem -->
+        <div class="absolute top-[45%] right-[10%] aspect-square w-72 bg-gradient-to-bl from-pink-400 to-violet-500 opacity-40 rounded-full blur-3xl animate-blob-e"></div>
+        <!-- Blob perto da terceira imagem -->
+        <div class="absolute bottom-[15%] left-[15%] aspect-square w-80 bg-gradient-to-tl from-emerald-400 to-cyan-500 opacity-40 rounded-full blur-3xl animate-blob-f"></div>
+    </div>
+
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Layout da Imagem 1 (NOVA) -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start"
+      >
+        <!-- NOVO LAYOUT: Borda de vidro e alinhamento superior -->
+        <div
+          class="relative w-full rounded-3xl shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
+        >
+          <Image
+            src={imgDashboard}
+            alt="Screenshot do Dashboard principal"
+            class="block w-full h-auto object-cover rounded-2xl aspect-video"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto (NOVO) -->
+        <div class="max-w-xl">
+          <span
+            class="text-sm font-semibold uppercase text-violet-600 dark:text-violet-400"
+            >Dashboard Completo</span
+          >
+          <h3
+            class="mt-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+          >
+            Visão total do seu negócio.
+          </h3>
+          <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+            Acompanhe sua receita, métodos de pagamento, serviços mais
+            populares e agendamentos futuros. Tome decisões baseadas em
+            dados, não em achismos.
+          </p>
+        </div>
+      </div>
+
+      <!-- Layout da Imagem 2 (NOVA) -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-24 sm:mt-32"
+      >
+        <!-- Imagem (ordem invertida) -->
+        <div
+          class="lg:order-first relative w-full rounded-3xl shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
+        >
+          <Image
+            src={imgCliente}
+            alt="Telas do aplicativo do cliente para agendamento"
+            class="block w-full h-auto object-contain max-h-[500px] lg:max-h-full rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto (NOVO) -->
+        <div class="max-w-xl">
+          <span
+            class="text-sm font-semibold uppercase text-violet-600 dark:text-violet-400"
+            >Experiência do Cliente</span
+          >
+          <h3
+            class="mt-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+          >
+            Agendamento fácil. Cliente feliz.
+          </h3>
+          <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+            Seu cliente pode agendar pelo app, escolhendo o dia e o horário
+            disponível, sem precisar te mandar mensagem. E com a vitrine
+            "Explorar", novos clientes te encontram.
+          </p>
+        </div>
+      </div>
+
+      <!-- Layout da Imagem 3 (NOVA) -->
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mt-24 sm:mt-32"
+      >
+        <!-- Imagem -->
+        <div
+          class="relative w-full rounded-3xl shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
+        >
+          <Image
+            src={imgGestao}
+            alt="Telas do aplicativo do profissional para gestão"
+            class="block w-full h-auto object-contain max-h-[500px] lg:max-h-full rounded-2xl"
+            loading="lazy"
+          />
+        </div>
+
+        <!-- Texto (NOVO) -->
+        <div class="max-w-xl">
+          <span
+            class="text-sm font-semibold uppercase text-violet-600 dark:text-violet-400"
+            >Gestão na Mão</span
+          >
+          <h3
+            class="mt-4 text-3xl font-bold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+          >
+            Controle total, onde estiver.
+          </h3>
+          <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
+            Acesse seu dashboard móvel, veja os detalhes de cada
+            agendamento e gerencie os pagamentos. Tudo na palma da sua mão,
+            para você focar no que realmente importa: seu cliente.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 
+    Seção da Lista de Espera (Waitlist)
+    Nenhuma alteração de layout necessária aqui, já estava sólida.
+  -->
+  <section
+    id="waitlist"
+    class="relative isolate py-20 sm:py-32 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-lg"
+  >
+    <div
+      class="absolute inset-x-0 top-1/2 -z-10 transform-gpu overflow-hidden blur-3xl"
+      aria-hidden="true"
+    >
+      <div
+        class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-violet-600 to-indigo-600 opacity-20 dark:opacity-10"
+        style="clip-path: ellipse(70% 50% at 50% 50%)"
+      >
+      </div>
+    </div>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative">
+          <h2
+            class="text-3xl font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-4xl"
+          >
+            Pronto para <span class="text-violet-600 dark:text-violet-400"
+              >automatizar</span
+            > o caos?
+          </h2>
+          <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-300">
+            Sabemos que sua paixão é o seu ofício, não preencher planilhas.
+            Deixe o ClickCut cuidar da sua agenda e do seu financeiro.
+          </p>
+          <ul class="mt-10 space-y-6 text-zinc-700 dark:text-zinc-200">
+            <li class="flex gap-4">
+              <i
+                class="material-symbols-outlined text-xl text-violet-600 dark:text-violet-400"
+                >check_circle</i
+              >
+              <span>Cálculo automático de comissões e folhas de pagamento.</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <i
+                class="material-symbols-outlined text-xl text-violet-600 dark:text-violet-400"
+                >check_circle</i
+              >
+              <span
+                >Gestão de equipe com cargos e permissões personalizadas.</span
+              >
+            </li>
+            <li class="flex gap-4">
+              <i
+                class="material-symbols-outlined text-xl text-violet-600 dark:text-violet-400"
+                >check_circle</i
+              >
+              <span
+                >Seja encontrado por novos clientes na nossa página Explorar.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="relative w-full">
+          <form
+            name="leads-lancamento"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            action="/sucesso"
+            class="space-y-6 rounded-3xl border border-zinc-200/80 dark:border-zinc-800/50
+                   bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md shadow-2xl p-8"
+          >
+            <h3 class="text-2xl font-bold text-zinc-900 dark:text-white">
+              Seja o primeiro a saber.
+            </h3>
+            <p class="text-zinc-600 dark:text-zinc-300">
+              Inscreva-se e ganhe <strong class="text-violet-500"
+                >3 meses de Plano Pro grátis</strong
+              > no lançamento.
+            </p>
+
+            <input type="hidden" name="form-name" value="leads-lancamento" />
+            <p class="hidden">
+              <label>Não preencha: <input name="bot-field" /></label>
+            </p>
+
+            <div>
+              <label
+                for="lead-nome"
+                class="block text-sm font-medium mb-1.5 text-zinc-700 dark:text-zinc-300"
+                >Seu nome</label
+              >
+              <input
+                type="text"
+                name="nome"
+                id="lead-nome"
+                required
+                placeholder="Ex: José Victor"
+                class="w-full rounded-xl border border-zinc-300 bg-white/50 py-2.5 px-4 text-zinc-800 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label
+                for="lead-email"
+                class="block text-sm font-medium mb-1.5 text-zinc-700 dark:text-zinc-300"
+                >Seu melhor e-mail</label
+              >
+              <input
+                type="email"
+                name="email"
+                id="lead-email"
+                required
+                placeholder="voce@exemplo.com"
+                class="w-full rounded-xl border border-zinc-300 bg-white/50 py-2.5 px-4 text-zinc-800 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-white"
+              />
+            </div>
+
+            <div>
+              <label
+                for="lead-problema"
+                class="block text-sm font-medium mb-1.5 text-zinc-700 dark:text-zinc-300"
+                >Qual seu maior desafio hoje?</label
+              >
+              <select
+                name="desafio"
+                id="lead-problema"
+                required
+                class="w-full rounded-xl border border-zinc-300 bg-white/50 py-2.5 px-4 text-zinc-800 focus:border-violet-500 focus:outline-none focus:ring-2 focus:ring-violet-500/20 dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-white"
+              >
+                <option value="" disabled selected
+                  >Selecione uma opção...</option
+                >
+                <option value="agenda_caotica"
+                  >Minha agenda é caótica (furos, overbooking)</option
+                >
+                <option value="gestao_equipe"
+                  >Gerenciar horários e permissões da equipe</option
+                >
+                <option value="comissoes_financeiro"
+                  >Calcular comissões e pagamentos (Payroll)</option
+                >
+                <option value="atrair_clientes"
+                  >Atrair novos clientes (Marketing/Explore)</option
+                >
+                <option value="outro">Outro...</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 text-white py-3 text-sm font-semibold
+                     shadow-lg shadow-violet-600/20
+                     transition-all duration-200
+                     hover:from-violet-700 hover:to-indigo-700 hover:shadow-xl
+                     focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2
+                     dark:focus:ring-offset-zinc-900"
+            >
+              Quero meu acesso antecipado!
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

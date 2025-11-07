@@ -1,0 +1,46 @@
+---
+// src/components/Footer.astro
+// Um rodapé simples para sua landing page
+---
+<footer class="border-t border-zinc-200/50 dark:border-zinc-800/50">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <!-- Coluna 1: Logo -->
+      <div>
+        <a href="/" class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+          ClickCut
+        </a>
+        <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+          Gestão e agendamentos, simplificados.
+        </p>
+      </div>
+      <!-- Coluna 2: Links -->
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Produto</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#features" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Funcionalidades</a></li>
+          <li><a href="#pricing" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Preços</a></li>
+        </ul>
+      </div>
+      <!-- Coluna 3: Empresa -->
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Empresa</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Sobre nós</a></li>
+          <li><a href="#" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Blog</a></li>
+        </ul>
+      </div>
+      <!-- Coluna 4: Legal -->
+      <div>
+        <h3 class="text-sm font-semibold text-zinc-900 dark:text-white">Legal</h3>
+        <ul class="mt-4 space-y-2">
+          <li><a href="#" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Privacidade</a></li>
+          <li><a href="#" class="text-sm text-zinc-600 dark:text-zinc-400 hover:text-indigo-500">Termos de Uso</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-12 border-t border-zinc-200/50 dark:border-zinc-800/50 pt-8 text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <p>&copy; {new Date().getFullYear()} ClickCut. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
