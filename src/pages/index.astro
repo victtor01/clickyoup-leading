@@ -9,6 +9,7 @@ import imgCliente from "../assets/client.png";
 import imgGestao from "../assets/gestion.png";
 import Image from "astro/components/Image.astro";
 ---
+
 <Layout>
   <Fragment slot="head">
     <style>
@@ -48,21 +49,38 @@ import Image from "astro/components/Image.astro";
       }
       /* Novos Blobs para as Imagens */
       @keyframes blobFloatD {
-        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        50% { transform: translate(20px, -15px) rotate(5deg) scale(0.96); }
-        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        0% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate(20px, -15px) rotate(5deg) scale(0.96);
+        }
+        100% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
       }
       @keyframes blobFloatE {
-        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        50% { transform: translate(-25px, 10px) rotate(-7deg) scale(0.99); }
-        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        0% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate(-25px, 10px) rotate(-7deg) scale(0.99);
+        }
+        100% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
       }
       @keyframes blobFloatF {
-        0% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
-        50% { transform: translate(15px, 20px) rotate(10deg) scale(0.98); }
-        100% { transform: translate(0px, 0px) rotate(0deg) scale(1); }
+        0% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
+        50% {
+          transform: translate(15px, 20px) rotate(10deg) scale(0.98);
+        }
+        100% {
+          transform: translate(0px, 0px) rotate(0deg) scale(1);
+        }
       }
-
 
       .animate-blob-a {
         animation: blobFloatA 10s ease-in-out infinite;
@@ -74,9 +92,15 @@ import Image from "astro/components/Image.astro";
         animation: blobFloatC 14s ease-in-out infinite;
       }
       /* Animações dos Novos Blobs */
-      .animate-blob-d { animation: blobFloatD 9s ease-in-out infinite; }
-      .animate-blob-e { animation: blobFloatE 11s ease-in-out infinite; }
-      .animate-blob-f { animation: blobFloatF 13s ease-in-out infinite; }
+      .animate-blob-d {
+        animation: blobFloatD 9s ease-in-out infinite;
+      }
+      .animate-blob-e {
+        animation: blobFloatE 11s ease-in-out infinite;
+      }
+      .animate-blob-f {
+        animation: blobFloatF 13s ease-in-out infinite;
+      }
     </style>
   </Fragment>
 
@@ -302,21 +326,29 @@ import Image from "astro/components/Image.astro";
     </div>
 
     <!-- NOVOS BLOBS (atrás das imagens de vidro) -->
-    <div class="absolute inset-0 -z-10 pointer-events-none opacity-50 dark:opacity-30">
-        <!-- Blob perto da primeira imagem -->
-        <div class="absolute top-[10%] left-[5%] aspect-square w-64 bg-gradient-to-br from-indigo-400 to-purple-500 opacity-40 rounded-full blur-3xl animate-blob-d"></div>
-        <!-- Blob perto da segunda imagem -->
-        <div class="absolute top-[45%] right-[10%] aspect-square w-72 bg-gradient-to-bl from-pink-400 to-violet-500 opacity-40 rounded-full blur-3xl animate-blob-e"></div>
-        <!-- Blob perto da terceira imagem -->
-        <div class="absolute bottom-[15%] left-[15%] aspect-square w-80 bg-gradient-to-tl from-emerald-400 to-cyan-500 opacity-40 rounded-full blur-3xl animate-blob-f"></div>
+    <div
+      class="absolute inset-0 -z-10 pointer-events-none opacity-50 dark:opacity-30"
+    >
+      <!-- Blob perto da primeira imagem -->
+      <div
+        class="absolute top-[10%] left-[5%] aspect-square w-64 bg-gradient-to-br from-indigo-400 to-purple-500 opacity-40 rounded-full blur-3xl animate-blob-d"
+      >
+      </div>
+      <!-- Blob perto da segunda imagem -->
+      <div
+        class="absolute top-[45%] right-[10%] aspect-square w-72 bg-gradient-to-bl from-pink-400 to-violet-500 opacity-40 rounded-full blur-3xl animate-blob-e"
+      >
+      </div>
+      <!-- Blob perto da terceira imagem -->
+      <div
+        class="absolute bottom-[15%] left-[15%] aspect-square w-80 bg-gradient-to-tl from-emerald-400 to-cyan-500 opacity-40 rounded-full blur-3xl animate-blob-f"
+      >
+      </div>
     </div>
-
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Layout da Imagem 1 (NOVA) -->
-      <div
-        class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start"
-      >
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- NOVO LAYOUT: Borda de vidro e alinhamento superior -->
         <div
           class="relative w-full rounded-3xl shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
@@ -341,9 +373,9 @@ import Image from "astro/components/Image.astro";
             Visão total do seu negócio.
           </h3>
           <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-            Acompanhe sua receita, métodos de pagamento, serviços mais
-            populares e agendamentos futuros. Tome decisões baseadas em
-            dados, não em achismos.
+            Acompanhe sua receita, métodos de pagamento, serviços mais populares
+            e agendamentos futuros. Tome decisões baseadas em dados, não em
+            achismos.
           </p>
         </div>
       </div>
@@ -411,9 +443,9 @@ import Image from "astro/components/Image.astro";
             Controle total, onde estiver.
           </h3>
           <p class="mt-6 text-lg text-zinc-600 dark:text-zinc-400">
-            Acesse seu dashboard móvel, veja os detalhes de cada
-            agendamento e gerencie os pagamentos. Tudo na palma da sua mão,
-            para você focar no que realmente importa: seu cliente.
+            Acesse seu dashboard móvel, veja os detalhes de cada agendamento e
+            gerencie os pagamentos. Tudo na palma da sua mão, para você focar no
+            que realmente importa: seu cliente.
           </p>
         </div>
       </div>
@@ -503,9 +535,14 @@ import Image from "astro/components/Image.astro";
             </p>
 
             <input type="hidden" name="form-name" value="leads-lancamento" />
-            <p class="hidden">
-              <label>Não preencha: <input name="bot-field" autocomplete="off"/></label>
-            </p>
+            <!-- <p class="hidden">
+              <label
+                >Não preencha: <input
+                  name="bot-field"
+                  autocomplete="off"
+                /></label
+              >
+            </p> -->
 
             <div>
               <label
