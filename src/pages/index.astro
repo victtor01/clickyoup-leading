@@ -1,7 +1,4 @@
 ---
-// src/pages/index.astro
-// Este é o conteúdo principal da sua landing page.
-// Ele substitui o antigo 'Welcome.astro'.
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import imgDashboard from "../assets/dashboard.png";
@@ -135,10 +132,8 @@ import Image from "astro/components/Image.astro";
       </p>
       <div class="mt-10 flex items-center justify-center gap-x-6">
         <a
-          href="/register"
-          class="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg
-                 hover:from-violet-700 hover:to-indigo-700
-                 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+          href="#waitlist"
+          class="rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:from-violet-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
         >
           Comece Agora (É Grátis)
         </a>
@@ -293,12 +288,8 @@ import Image from "astro/components/Image.astro";
     </div>
   </section>
 
-  <!-- 
-    Seção de Imagens (Dashboard, Cliente, Gestão)
-    REFATORADA com as 3 novas imagens, textos, bordas de vidro e alinhamento no topo.
-  -->
   <section
-    class="relative isolate py-20 sm:py-32 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-lg"
+    class="relative isolate py-20 sm:py-32 bg-white/80 dark:bg-zinc-950/80 overflow-x-hidden w-full bg-red-200 backdrop-blur-lg"
   >
     <!-- Container dos Blobs Animados (Fundo) -->
     <div
@@ -351,12 +342,12 @@ import Image from "astro/components/Image.astro";
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
         <!-- NOVO LAYOUT: Borda de vidro e alinhamento superior -->
         <div
-          class="relative w-full rounded-3xl shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
+          class="relative w-full rounded-3xl h-auto shadow-2xl bg-white/10 dark:bg-zinc-800/20 backdrop-blur-md border border-white/20 dark:border-zinc-700/30 p-2 overflow-hidden"
         >
           <Image
             src={imgDashboard}
             alt="Screenshot do Dashboard principal"
-            class="block w-full h-auto object-cover rounded-2xl aspect-video"
+            class="block w-full h-auto rounded-2xl "
             loading="lazy"
           />
         </div>
@@ -452,10 +443,6 @@ import Image from "astro/components/Image.astro";
     </div>
   </section>
 
-  <!-- 
-    Seção da Lista de Espera (Waitlist)
-    Nenhuma alteração de layout necessária aqui, já estava sólida.
-  -->
   <section
     id="waitlist"
     class="relative isolate py-20 sm:py-32 bg-zinc-50/80 dark:bg-zinc-900/80 backdrop-blur-lg"
@@ -519,6 +506,7 @@ import Image from "astro/components/Image.astro";
           <form
             name="leads-lancamento-v2"
             method="POST"
+            id="#form"
             data-netlify="true"
             action="/sucesso/"
             class="space-y-6 rounded-3xl border border-zinc-200/80 dark:border-zinc-800/50
@@ -528,9 +516,9 @@ import Image from "astro/components/Image.astro";
               Seja o primeiro a saber.
             </h3>
             <p class="text-zinc-600 dark:text-zinc-300">
-              Inscreva-se e ganhe <strong class="text-violet-500"
-                >3 meses de Plano Pro grátis</strong
-              > no lançamento.
+              Inscreva-se e ganhe <strong class="text-violet-500">
+                7 dias de Plano Pro grátis
+              </strong> no lançamento.
             </p>
 
             <div>
